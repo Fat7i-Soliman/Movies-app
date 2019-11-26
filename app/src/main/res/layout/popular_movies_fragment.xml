@@ -17,4 +17,12 @@
     >
 
     </android.support.v7.widget.RecyclerView>
+
+    <ProgressBar
+            android:id="@+id/loading_spinner"
+            style="?android:indeterminateProgressStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+    />
 </RelativeLayout>

@@ -1,5 +1,9 @@
 package com.example.movies.network
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.support.v7.app.AppCompatActivity
+import com.example.movies.MainActivity
 import com.example.movies.Root
 import com.example.movies.details.MovieInfo
 import com.squareup.moshi.Moshi
@@ -44,5 +48,13 @@ interface ApiService{
 object MovieApi{
     val retrofitService: ApiService by lazy {
         retrofit.create(ApiService::class.java)
+    }
+}
+
+class Connection{
+    fun verifyAvailableNetwork(activity: AppCompatActivity):Boolean{
+        val connectivityManager=activity.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo=connectivityManager.activeNetworkInfo
+        return  networkInfo!=null && networkInfo.isConnected
     }
 }

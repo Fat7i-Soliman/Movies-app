@@ -13,15 +13,21 @@
                 app:destination="@id/movieDetail"
                 app:enterAnim="@anim/anim"
         />
+        <action android:id="@+id/action_mainPage_to_searchFragment" app:destination="@id/searchFragment"/>
     </fragment>
     <fragment android:id="@+id/movieDetail" android:name="com.example.movies.details.MovieDetail"
               android:label="Movie Details" tools:layout="@layout/movie_detail_fragment">
         <argument android:name="id" app:argType="integer"/>
         <action android:id="@+id/action_movieDetail_to_webFragment" app:destination="@id/webFragment"
-                app:enterAnim="@anim/anim" app:exitAnim="@anim/anim"/>
+        />
     </fragment>
     <fragment android:id="@+id/webFragment" android:name="com.example.movies.details.WebFragment"
               android:label="Movie Details" tools:layout="@layout/fragment_web">
         <argument android:name="url" app:argType="string"/>
+    </fragment>
+    <fragment android:id="@+id/searchFragment" android:name="com.example.movies.search.SearchFragment"
+              android:label="find a movie">
+        <action android:id="@+id/action_searchFragment_to_movieDetail" app:destination="@id/movieDetail"
+                app:enterAnim="@anim/anim"/>
     </fragment>
 </navigation>
